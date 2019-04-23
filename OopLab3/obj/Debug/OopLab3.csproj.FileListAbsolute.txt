@@ -10,3 +10,4 @@ C:\Users\katri\OneDrive\Рабочий стол\OopLab3\OopLab3\obj\Debug\OopLab
 C:\Users\katri\OneDrive\Рабочий стол\OopLab3\OopLab3\obj\Debug\OopLab3.exe
 C:\Users\katri\OneDrive\Рабочий стол\OopLab3\OopLab3\obj\Debug\OopLab3.pdb
 C:\Users\katri\OneDrive\Рабочий стол\OopLab3\OopLab3\obj\Debug\OopLab3.WinForm.resources
+C:\Users\katri\OneDrive\Рабочий стол\OopLab3\OopLab3\obj\Debug\OopLab3.Form2.resources

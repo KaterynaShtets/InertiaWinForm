@@ -20,6 +20,8 @@ namespace OopLab3
         private Field field = new Field(500, 500);
         private Graphics g;
         WinForm win = new WinForm();
+        Form2 win2 = new Form2();
+        
         public Form1()
         {
             InitializeComponent();
@@ -31,8 +33,12 @@ namespace OopLab3
             field.GenerateWall();
             field.GenerateCoins();
             field.GenerateTeleport();
+            field.GenerateKillers();
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
             UpdateStyles();
+            label1.Text = "Lives:"+field.Lives.ToString();
+            label2.Text = "You must collect"+field.Prizes.ToString()+"prizes";
+            
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -42,6 +48,7 @@ namespace OopLab3
             DrawWalls();
             DrawCoins();
             DrawTeleport();
+            DrawKiller();
         }
         private void DrawWalls()
         {
@@ -65,6 +72,17 @@ namespace OopLab3
                 }
             }
         }
+        private void DrawKiller()
+        {
+            foreach (Element k in field.place)
+            {
+                Killer kill = k as Killer;
+                if (kill != null)
+                {
+                    g.DrawImage(k.img, k.X,k.Y, k.Width, k.Height);
+                }
+            }
+        }
         private void DrawCoins()
         {
             foreach (Element p in field.place)
@@ -80,10 +98,21 @@ namespace OopLab3
         {
             field.Prizes--;
         }
-
+        public void MinusLives()
+        {
+            field.Lives--;
+        }
         public bool StopGame()
         {
             if (field.Prizes == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool Fail()
+        {
+            if (field.Lives == 0)
             {
                 return true;
             }
@@ -125,6 +154,14 @@ namespace OopLab3
                 field.place[Player.X, Player.Y] = Player;
                 field.place[X, Y] = null;
                 MinusPrizes();
+                return false;
+            }
+            else if (field.place[Player.X + x, Player.Y + y] is Killer)
+            {
+                Player.Move(x, y);
+                field.place[Player.X, Player.Y] = Player;
+                field.place[X, Y] = null;
+                MinusLives();
                 return false;
             }
             else if (field.place[Player.X + x, Player.Y + y] is null)
@@ -228,9 +265,16 @@ namespace OopLab3
                 }
 
             }
+            label1.Text = field.Lives.ToString();
+            label2.Text = field.Prizes.ToString();
             if (StopGame())
             {
                 win.Show();
+                this.Hide();
+            }
+            if (Fail())
+            {
+                win2.Show();
                 this.Hide();
             }
         }

@@ -14,7 +14,7 @@ namespace OopLab3.Models
         public Element[,] place;
         private Bitmap Background;
         public int Prizes { get; set; }
-
+        public int Lives { get; set; } = 3;
         public Field(int width, int height)
         {
             Width = width;
@@ -72,9 +72,18 @@ namespace OopLab3.Models
             }
             Prize p3 = new Prize(400, 450);
             place[p3.X, p3.Y] = p3;
-            Prizes++;
         }
-        
+        public void GenerateKillers()
+        {
+            
+                Killer killer = new Killer(250, 250);
+                place[killer.X, killer.Y] = killer;
+            Killer killer2 = new Killer(400, 250);
+            place[killer2.X, killer2.Y] = killer2;
+            Killer killer3 = new Killer(50, 250);
+            place[killer3.X, killer3.Y] = killer3;
+
+        }
         public void GenerateTeleport()
         {
             Teleport t=new Teleport(100, 450);
