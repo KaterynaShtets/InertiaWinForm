@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 namespace OopLab3.Models
 {
     public class Field 
-    {
-      
+    { 
         public int Width { get; set; }
         public int Height { get; set; }
         public Element[,] place;
