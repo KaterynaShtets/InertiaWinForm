@@ -11,3 +11,35 @@ C:\Users\katri\OneDrive\Рабочий стол\OopLab3\OopLab3\obj\Debug\OopLab
 C:\Users\katri\OneDrive\Рабочий стол\OopLab3\OopLab3\obj\Debug\OopLab3.pdb
 C:\Users\katri\OneDrive\Рабочий стол\OopLab3\OopLab3\obj\Debug\OopLab3.WinForm.resources
 C:\Users\katri\OneDrive\Рабочий стол\OopLab3\OopLab3\obj\Debug\OopLab3.Form2.resources
+C:\Users\katri\OneDrive\Рабочий стол\OopLab3\OopLab3\obj\Debug\OopLab3.Menu.resources
+C:\Users\katri\OneDrive\Рабочий стол\OopLab3\OopLab3\obj\Debug\OopLab3.Results.resources
+F:\OopLab3\OopLab3\OopLab3\bin\Debug\OopLab3.exe.config
+F:\OopLab3\OopLab3\OopLab3\bin\Debug\OopLab3.exe
+F:\OopLab3\OopLab3\OopLab3\bin\Debug\OopLab3.pdb
+F:\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.csprojResolveAssemblyReference.cache
+F:\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.Form1.resources
+F:\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.Form2.resources
+F:\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.Menu.resources
+F:\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.Properties.Resources.resources
+F:\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.ResourceMain.resources
+F:\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.Results.resources
+F:\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.WinForm.resources
+F:\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.csproj.GenerateResource.Cache
+F:\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.csproj.CoreCompileInputs.cache
+F:\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.exe
+F:\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.pdb
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\bin\Debug\OopLab3.exe.config
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\bin\Debug\OopLab3.exe
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\bin\Debug\OopLab3.pdb
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.csprojAssemblyReference.cache
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.Form1.resources
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.Form2.resources
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.Menu.resources
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.Properties.Resources.resources
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.ResourceMain.resources
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.Results.resources
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.WinForm.resources
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.csproj.GenerateResource.cache
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.csproj.CoreCompileInputs.cache
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.exe
+C:\Users\katri\OneDrive\Рабочий стол\ооп\OopLab3\OopLab3\OopLab3\obj\Debug\OopLab3.pdb

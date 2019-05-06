@@ -59,10 +59,23 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="IMoveable.cs" />
+    <Compile Include="LabDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LabDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BreakPoint.cs" />
+    <Compile Include="Models\Death.cs" />
     <Compile Include="Models\Element.cs" />
     <Compile Include="Models\Field.cs" />
     <Compile Include="Models\Killer.cs" />
+    <Compile Include="Models\MedHelp.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Prize.cs" />
     <Compile Include="Models\Teleport.cs" />
@@ -72,6 +85,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ResourceMain.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Results.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Results.Designer.cs">
+      <DependentUpon>Results.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm.cs">
       <SubType>Form</SubType>
@@ -84,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,9 +120,23 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceMain.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Results.resx">
+      <DependentUpon>Results.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForm.resx">
       <DependentUpon>WinForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="LabDataSet.xsc">
+      <DependentUpon>LabDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LabDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LabDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LabDataSet.xss">
+      <DependentUpon>LabDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -137,6 +173,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\kill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\death.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

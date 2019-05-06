@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace OopLab3.Models
 {
-    public class Field
-{
+    public class Field 
+    {
+      
         public int Width { get; set; }
         public int Height { get; set; }
         public Element[,] place;
@@ -73,16 +75,25 @@ namespace OopLab3.Models
             Prize p3 = new Prize(400, 450);
             place[p3.X, p3.Y] = p3;
         }
+        public void GenerateHelp()
+        { 
+            MedHelp help = new MedHelp(400, 400);
+            place[help.X, help.Y] = help;
+        }
         public void GenerateKillers()
         {
             
-                Killer killer = new Killer(250, 250);
-                place[killer.X, killer.Y] = killer;
+            Killer killer = new Killer(250, 250);
+            place[killer.X, killer.Y] = killer;
             Killer killer2 = new Killer(400, 250);
             place[killer2.X, killer2.Y] = killer2;
-            Killer killer3 = new Killer(50, 250);
-            place[killer3.X, killer3.Y] = killer3;
-
+          
+        }
+        public void GenerateDeath()
+        {
+            
+            Death death = new Death(50, 250);
+            place[death.X, death.Y] = death;
         }
         public void GenerateTeleport()
         {
