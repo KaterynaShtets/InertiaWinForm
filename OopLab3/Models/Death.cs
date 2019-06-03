@@ -19,5 +19,9 @@ namespace OopLab3.Models
         {
             img = ResourceMain.death;
         }
+        public void NullLives(Player p)
+        {
+            p.Lives = 0;
+        }
     }
 }

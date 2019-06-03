@@ -1,22 +1,14 @@
 ﻿using OopLab3.Models;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OopLab3
 {
     public partial class Form1 : Form
     {
-        //private Bitmap PlayerImage = new Bitmap(ResourceMain.hero4);
 
         public Player Player = new Player() { X = 50, Y = 50 };
         private Field field = new Field(500, 500);
@@ -36,7 +28,7 @@ namespace OopLab3
         private void Form1_Load(object sender, EventArgs e)
         {
             field.GenerateWall();
-            field.GenerateCoins();
+            field.GenerateCoins(Player);
             field.GenerateTeleport();
             field.GenerateDeath();
             field.GenerateKillers();
@@ -45,8 +37,8 @@ namespace OopLab3
             myThread.Start();
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
             UpdateStyles();
-            label1.Text = "Lives:" + field.Lives.ToString();
-            label2.Text = "You must collect" + field.Prizes.ToString() + "prizes";
+            label1.Text = "Lives:" + Player.Lives.ToString();
+            label2.Text = "You must collect" + Player.Prizes.ToString() + "prizes";
 
         }
 
@@ -54,112 +46,21 @@ namespace OopLab3
         {
             g = e.Graphics;
             g.DrawImage(Player.img, Player.X, Player.Y, 50, 50);
-            DrawWalls();            
-            DrawCoins();
-            DrawDeath();
-            DrawTeleport();
-            DrawKiller();
-            DrawMedHelp();
+            DrawElements();
             
         }
-        private void DrawDeath()
-        {
-            foreach (Element d in field.place)
-            {
-                Death death = d as Death;
-                if (death != null)
-                {
-                    g.DrawImage(d.img, d.X, d.Y, d.Width, d.Height);
-                }
-            }
-        }
-        private void DrawWalls()
-        {
-            foreach (Element b in field.place)
-            {
-                BreakPoint br = b as BreakPoint;
-                if (br != null)
-                {
-                    g.DrawImage(b.img, b.X, b.Y, b.Width, b.Height);
-                }
-            }
-        }
-        private void DrawMedHelp()
-        {
-            foreach (Element b in field.place)
-            {
-                MedHelp br = b as MedHelp;
-                if (br != null)
-                {
-                    g.DrawImage(b.img, b.X, b.Y, b.Width, b.Height);
-                }
-            }
-        }
-        private void DrawTeleport()
-        {
-            foreach (Element b in field.place)
-            {
-                Teleport br = b as Teleport;
-                if (br != null)
-                {
-                    g.DrawImage(b.img, b.X, b.Y, b.Width, b.Height);
-                }
-            }
-        }
-        private void DrawKiller()
-        {
-            foreach (Element k in field.place)
-            {
-                Killer kill = k as Killer;
-                if (kill != null)
-                {
-                    g.DrawImage(k.img, k.X, k.Y, k.Width, k.Height);
-                }
-            }
-        }
-        private void DrawCoins()
+        
+        private void DrawElements()
         {
             foreach (Element p in field.place)
             {
-                Prize pr = p as Prize;
-                if (pr != null)
+                if(p != null)
                 {
                     g.DrawImage(p.img, p.X, p.Y, p.Width, p.Height);
-                }
+                }            
             }
         }
-        public void MinusPrizes()
-        {
-            field.Prizes--;
-        }
-        public void MinusLives()
-        {
-            field.Lives--;
-        }
-        public void NullLives()
-        {
-            field.Lives = 0;
-        }
-        public void PlusLives()
-        {
-            field.Lives++;
-        }
-        public bool StopGame()
-        {
-            if (field.Prizes == 0)
-            {
-                return true;
-            }
-            return false;
-        }
-        public bool Fail()
-        {
-            if (field.Lives == 0)
-            {
-                return true;
-            }
-            return false;
-        }
+        
 
         public void MoveEnemys()
         {
@@ -169,14 +70,15 @@ namespace OopLab3
             {
                 foreach (var c in field.place)
                 {
-                    if (c is Death)
+                    var d = c as Death;
+                    if (d != null)
                     {
                         int X = c.X;
                         int Y = c.Y;
                         c.Y += index;
                         if (field[c.X, c.Y] is Player)
                         {
-                            NullLives();
+                            d.NullLives(Player);
                             break;
                         }
                         field[c.X, c.Y] = c;
@@ -196,19 +98,20 @@ namespace OopLab3
         {
             int X = Player.X;
             int Y = Player.Y;
+            var elem = field.place[Player.X + x, Player.Y + y];
 
-            if (field.place[Player.X + x, Player.Y + y] == null)
+            if (elem == null)
             {
                 Player.Move(x, y);
                 field.place[Player.X, Player.Y] = Player;
                 field.place[X, Y] = null;
                 return true;
             }
-            else if (field.place[Player.X + x, Player.Y + y] is BreakPoint)
+            else if (elem is BreakPoint)
             {
                 return false;
             }
-            else if (field.place[Player.X + x, Player.Y + y] is Teleport)
+            else if (elem is Teleport)
             {
                 if (Player.X + x == 100 && Player.Y + y == 450)
                 {
@@ -222,44 +125,41 @@ namespace OopLab3
                 }
                 return true;
             }
-            else if (field.place[Player.X + x, Player.Y + y] is Prize)
+            else if (elem is Prize)
             {
+                var p = elem as Prize;
                 Player.Move(x, y);
                 field.place[Player.X, Player.Y] = Player;
                 field.place[X, Y] = null;
-                MinusPrizes();
+                p.MinusPrizes(Player);
                 return false;
             }
-            else if (field.place[Player.X + x, Player.Y + y] is Death)
+            else if (elem is Death)
             {
+                var d = elem as Death;
                 Player.Move(x, y);
                 field.place[Player.X, Player.Y] = Player;
                 field.place[X, Y] = null;
-                NullLives();
+                d.NullLives(Player);
                 return false;
             }
-            else if (field.place[Player.X + x, Player.Y + y] is MedHelp)
+            else if (elem is MedHelp)
             {
+                var m = elem as MedHelp;
                 Player.Move(x, y);
                 field.place[Player.X, Player.Y] = Player;
                 field.place[X, Y] = null;
-                PlusLives();
+                m.PlusLives(Player);
                 return false;
             }
-            else if (field.place[Player.X + x, Player.Y + y] is Killer)
+            else if (elem is Killer)
             {
+                var k = elem as Killer;
                 Player.Move(x, y);
                 field.place[Player.X, Player.Y] = Player;
                 field.place[X, Y] = null;
-                MinusLives();
+                k.MinusLives(Player);
                 return false;
-            }
-            else if (field.place[Player.X + x, Player.Y + y] is null)
-            {
-                Player.Move(x, y);
-                field.place[Player.X, Player.Y] = Player;
-                field.place[X, Y] = null;
-                return true;
             }
 
             return false;
@@ -365,16 +265,16 @@ namespace OopLab3
                 }
 
             }
-            label1.Text = field.Lives.ToString();
-            label2.Text = field.Prizes.ToString();
-            if (StopGame())
+            label1.Text = Player.Lives.ToString();
+            label2.Text = Player.Prizes.ToString();
+            if (field.StopGame(Player))
             {
                 WriteToDB(name, steps, "Win");
                 win.Show();
                 this.Dispose();
                 m.Show();
             }
-            if (Fail())
+            if (field.Fail(Player))
             {
                 WriteToDB(name, steps, "Fail");
                 win2.Show();

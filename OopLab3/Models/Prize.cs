@@ -19,5 +19,10 @@ namespace OopLab3.Models
         {
             img = ResourceMain.prize;
         }
+
+        public void MinusPrizes(Player p)
+        {
+            p.Prizes--;
+        }
     }
 }

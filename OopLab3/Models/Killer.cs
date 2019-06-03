@@ -19,5 +19,9 @@ namespace OopLab3.Models
         {
             img = ResourceMain.kill;
         }
+        public void MinusLives(Player p)
+        {
+            p.Lives--;
+        }
     }
 }

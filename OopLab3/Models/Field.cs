@@ -14,8 +14,6 @@ namespace OopLab3.Models
         public int Height { get; set; }
         public Element[,] place;
         private Bitmap Background;
-        public int Prizes { get; set; }
-        public int Lives { get; set; } = 3;
         public Field(int width, int height)
         {
             Width = width;
@@ -62,14 +60,14 @@ namespace OopLab3.Models
             }
         }
 
-        public void GenerateCoins()
+        public void GenerateCoins(Player player)
         {
             for (int i = 0; i < Height;)
             {
                 Prize p = new Prize(250, i+50);
                 place[p.X, p.Y] = p;
                 i += (p.Height+50);
-                Prizes++;
+                player.Prizes++;
             }
             Prize p3 = new Prize(400, 450);
             place[p3.X, p3.Y] = p3;
@@ -101,5 +99,22 @@ namespace OopLab3.Models
             Teleport t2 = new Teleport(350, 50);
             place[t2.X, t2.Y] = t2;
         }
+        public bool StopGame(Player p)
+        {
+            if (p.Prizes == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool Fail(Player p)
+        {
+            if (p.Lives == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        
     }
 }

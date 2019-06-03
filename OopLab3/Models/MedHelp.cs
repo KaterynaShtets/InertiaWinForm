@@ -15,10 +15,13 @@ namespace OopLab3.Models
             Width = 50;
             Height = 50;
         }
-        public 
-            MedHelp()
+        public MedHelp()
         {
             img = ResourceMain.help;
+        }
+        public void PlusLives(Player p)
+        {
+            p.Lives++;
         }
     }
 }
